@@ -13,6 +13,7 @@
 }
 
 .project-list__item {
+    padding: 12px 0;
     break-inside: avoid;
 }
 
