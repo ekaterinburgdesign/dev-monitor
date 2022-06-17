@@ -7,7 +7,7 @@ const cx = classNames.bind(styles)
 export default function ProjectList({ projectsData }) {
     return <div className={cx("project-list")}>
         {projectsData.map(project =>
-            <div className={cx("project-list__item")}>
+            <div className={cx("project-list__item")} key={project.url}>
                 <Project {...project} />
             </div>
         )}

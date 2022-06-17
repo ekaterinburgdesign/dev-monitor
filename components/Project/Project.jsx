@@ -49,7 +49,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                 </li>
 
                 {branches.map(({ slotUrl, date, commitMessage, commitUrl, commitAuthor }) =>
-                    <li className={cx("project__slots-list-item")}>
+                    <li className={cx("project__slots-list-item")} key={commitUrl}>
                         <a
                             href={slotUrl}
                             target="_blank"
@@ -78,7 +78,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
 
             <ul className={cx("project__other-list")}>
                 {links.map(({ name, url }) => (
-                    <li className={cx("project__other-list-item")}>
+                    <li className={cx("project__other-list-item")} key={name}>
                         <a
                             href={url}
                             target="_blank"
