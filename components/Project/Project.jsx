@@ -65,16 +65,11 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                                 rel="noreferrer"
                             >
                                 #
-                            </a> {timeAgo.format(new Date(date))} {commitAuthor} {commitMessage} 
+                            </a> {timeAgo.format(new Date(date))} {commitAuthor}: {commitMessage} 
                         </div>
                     </li>
                 )}
             </ul>
-
-            {/* slotUrl,
-            date: commitT.data.commit.committer.date,
-            commitUrl: commitT.data.html_url,
-            commitAuthor: commitT.data.commit.committer.name */}
 
             <ul className={cx("project__other-list")}>
                 {links.map(({ name, url }) => (
