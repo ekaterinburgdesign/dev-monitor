@@ -14,25 +14,35 @@ export default async function handler(req, res) {
         protected: false
     });
 
-    const slotsData = await Promise.all(branches.data.map(async ({ name, commit }) => {
+    const slotsData = await Promise.all(
+        branches.data.map(async ({ name, commit: lastCommit }) => {
+            const commit = await octokit.request('GET /repos/{owner}/{repo}/commits/{ref}', {
+                owner: 'ekaterinburgdesign',
+                repo,
+                ref: lastCommit.sha
+            });
 
-        const commitT = await octokit.request('GET /repos/{owner}/{repo}/commits/{ref}', {
-            owner: 'ekaterinburgdesign',
-            repo,
-            ref: commit.sha
-        });
+            const slotSuffix = name.replace(/\//g, '-');
+            const slotUrl = `https://${vercel}-${slotSuffix}.vercel.app`;
+            return {
+                slotUrl,
+                date: commit.data.commit.committer.date,
+                commitUrl: commit.data.html_url,
+                commitMessage: commit.data.commit.message,
+                commitAuthor: commit.data.committer?.login
+            };
+        }))
 
-        const slotSuffix = name.replace(/\//g, '-');
-        const slotUrl = `https://${vercel}-${slotSuffix}.vercel.app`;
-        return {
-            slotUrl,
-            date: commitT.data.commit.committer.date,
-            commitUrl: commitT.data.html_url,
-            commitMessage: commitT.data.commit.message,
-            commitAuthor: commitT.data.committer?.login
-        };
-    }));
+    const sortedSlots = slotsData.sort((a, b) => {
+        if (a.date > b.date) {
+            return -1;
+        }
+        if (a.date < b.date) {
+            return 1;
+        }
 
-    res.status(200).json(slotsData);
+        return 0;
+    });
+
+    res.status(200).json(sortedSlots);
 }
- 
