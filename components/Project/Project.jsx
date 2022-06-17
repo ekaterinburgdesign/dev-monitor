@@ -29,7 +29,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                 <h2 className={cx("project__title")}>
                     {title}
                     {git && (
-                        <a href={`https://github.com/ekaterinburgdesign/${git}`} target="_blank">
+                        <a href={`https://github.com/ekaterinburgdesign/${git}`} target="_blank" rel="noreferrer">
                             <img className={cx("project__github-icon")} src={"/images/github.png"} alt="" />
                         </a>
                     )}
@@ -41,6 +41,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                     <a
                         href={url}
                         target="_blank"
+                        rel="noreferrer"
                         className={cx("project__slots-link")}
                     >
                         {new URL(url).host}
@@ -52,6 +53,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                         <a
                             href={slotUrl}
                             target="_blank"
+                            rel="noreferrer"
                             className={cx("project__slots-link")}
                         >
                             {new URL(slotUrl).host.replace('.vercel.app', '')}
@@ -60,6 +62,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                             <a
                                 href={commitUrl}
                                 target="_blank"
+                                rel="noreferrer"
                             >
                                 #
                             </a> {timeAgo.format(new Date(date))} {commitAuthor} {commitMessage} 
@@ -79,6 +82,7 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                         <a
                             href={url}
                             target="_blank"
+                            rel="noreferrer"
                             className={cx("project__other-link")}
                         >
                             {name}
