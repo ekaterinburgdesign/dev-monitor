@@ -5,8 +5,12 @@ import styles from './ProjectList.module.css'
 const cx = classNames.bind(styles)
 
 export default function ProjectList({ projectsData }) {
-    return <div className={cx('project-list')}>
-        {projectsData.map(project => <Project {...project} />)}
+    return <div className={cx("project-list")}>
+        {projectsData.map(project =>
+            <div className={cx("project-list__item")}>
+                <Project {...project} />
+            </div>
+        )}
     </div>
 }
 

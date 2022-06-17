@@ -1,12 +1,8 @@
 import Head from 'next/head'
 import projects from '../projects.json'
-import classNames from 'classnames/bind'
 import ProjectList from '../components/ProjectList/ProjectList'
 
-const cx = classNames.bind()
-
 function Home({ projectsData }) {
-  console.log(projectsData)
   return (
     <>
       <Head>

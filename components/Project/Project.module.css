@@ -2,6 +2,8 @@
     padding: 32px;
     vertical-align: top;
     box-shadow: 0 3px 12px -2px rgb(17 12 46 / 15%);
+    width: 100%;
+    break-inside: avoid;
 }
 
 .project__meta {
@@ -11,7 +13,7 @@
     margin-bottom: 12px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
     .project__meta {
         flex-direction: row;
         align-items: center;
@@ -38,7 +40,7 @@
 .project__title {
     margin: 0;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     gap: 8px;
     align-items: center;
@@ -60,7 +62,7 @@
     margin: 0 0 32px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
     .project__slots-list {
         margin: 0 0 32px 46px;
     }
@@ -68,14 +70,30 @@
 
 .project__slots-list-item {
     line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.project__slots-list-item_production {
+    font-weight: 600;
+}
+
+.project__slots-commit {
+    color:rgb(160, 160, 160);
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.project__slots-commit > a {
+    color: inherit;
 }
 
 .project__slots-link {
-    flex-wrap: wrap;
     color: black;
     text-decoration: none;
     box-shadow: 0 1px rgba(0,0,0,.25);
     padding-bottom: 1px;
+    font-size: 15px;
     margin: 0;
 }
 
@@ -92,7 +110,7 @@
     padding: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
     .project__other-list {
         margin: 0 0 8px 46px;
     }

@@ -4,6 +4,7 @@
         "url": "https://ekaterinburg.design/",
         "icon": "logo-site.svg",
         "git": "ekaterinburgdesign",
+        "vercel": "edesign",
         "links": [
             {
                 "name": "Figma",
@@ -16,10 +17,28 @@
         ]
     },
     {
+        "title": "Руководства",
+        "url": "https://guides.ekaterinburg.design/",
+        "icon": "",
+        "git": "guides",
+        "vercel": "eguides",
+        "links": [
+            {
+                "name": "Figma",
+                "url": "https://www.figma.com/file/VpUQ8aZanmAIbwlSt5UTKH/%F0%9F%9A%B2-ekaterinburg.design-Site?node-id=2301%3A142"
+            },
+            {
+                "name": "API",
+                "url": "https://1862987759-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F5kt6e2DWH50tt51DoJIw%2Fuploads%2FQmH1TLD6G9HucQm0hY9H%2FDesignCode--guides.postman_collection.json?alt=media&token=23c55609-491c-4808-82aa-4517b8538c0b"
+            }
+        ]
+    },
+    {
         "title": "Адресные таблички",
         "url": "https://eplates.vercel.app/",
         "icon": "",
-        "git": "guides",
+        "git": "street-name-plates",
+        "vercel": "eplates",
         "links": [
             {
                 "name": "Figma",
@@ -44,22 +63,6 @@
             {
                 "name": "MVP",
                 "url": "https://ekaterinburg.design/street-plates-generator"
-            }
-        ]
-    },
-    {
-        "title": "Руководства",
-        "url": "https://guides.ekaterinburg.design/",
-        "icon": "",
-        "git": "guides",
-        "links": [
-            {
-                "name": "Figma",
-                "url": "https://www.figma.com/file/VpUQ8aZanmAIbwlSt5UTKH/%F0%9F%9A%B2-ekaterinburg.design-Site?node-id=2301%3A142"
-            },
-            {
-                "name": "API",
-                "url": "https://1862987759-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F5kt6e2DWH50tt51DoJIw%2Fuploads%2FQmH1TLD6G9HucQm0hY9H%2FDesignCode--guides.postman_collection.json?alt=media&token=23c55609-491c-4808-82aa-4517b8538c0b"
             }
         ]
     }
