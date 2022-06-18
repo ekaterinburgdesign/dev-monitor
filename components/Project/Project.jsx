@@ -8,23 +8,7 @@ TimeAgo.addDefaultLocale(ru)
 const cx = classNames.bind(styles)
 const timeAgo = new TimeAgo('ru-RU')
 
-export default function Project({ title, icon, url, git, vercel, links }) {
-    const [branches, setSlots] = useState([]);
-    const [repoMeta, setRepoMeta] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-
-            const repoMeta = await loadRepoStats(git);
-            setRepoMeta(repoMeta);
-
-            const branches = await loadSlots(git, vercel);
-            setSlots(branches);
-
-            console.log(repoMeta)
-        })();
-    }, []);
-
+export default function Project({ title, icon, url, git, vercel, stats, slots, links }) {
     return (
         <article className={cx("project")}>
             <header className={cx("project__meta")}>
@@ -49,23 +33,29 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                         </a>
                     )}
                     &nbsp;&nbsp;
-                    <a
-                        href={`https://github.com/ekaterinburgdesign/${git}/pulls`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={cx("project__meta-link")}
-                    >
-                        Ревью: {repoMeta.pulls}
-                    </a>
-                    &nbsp;·&nbsp;
-                    <a
-                        href={`https://github.com/ekaterinburgdesign/${git}/issues`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={cx("project__meta-link")}
-                    >
-                        Задачи: {repoMeta.issues}
-                    </a>
+                    {stats === undefined ?
+                        <>Загрузка...</>
+                        : <>
+                            <a
+                                href={`https://github.com/ekaterinburgdesign/${git}/pulls`}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={cx("project__meta-link")}
+                            >
+                                Ревью: {stats.pulls}
+                            </a>
+                            &nbsp;·&nbsp;
+                            <a
+                                href={`https://github.com/ekaterinburgdesign/${git}/issues`}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={cx("project__meta-link")}
+                            >
+                                Задачи: {stats.issues}
+                            </a>
+                        </>
+                    }
+
                 </p>
             </header>
 
@@ -81,7 +71,8 @@ export default function Project({ title, icon, url, git, vercel, links }) {
                     </a>
                 </li>
 
-                {branches.map(({ slotUrl, date, commitMessage, commitUrl, commitAuthor }) =>
+
+                {slots?.map(({ slotUrl, date, commitMessage, commitUrl, commitAuthor }) =>
                     <li className={cx("project__slots-list-item")} key={commitUrl}>
                         <a
                             href={slotUrl}
@@ -123,14 +114,4 @@ export default function Project({ title, icon, url, git, vercel, links }) {
 
         </article>
     )
-}
-
-async function loadRepoStats(repo) {
-    const response = await fetch(`/api/repo-stats?repo=${repo}`);
-    return await response.json();
-}
-
-async function loadSlots(repo, vercel) {
-    const response = await fetch(`/api/slots?repo=${repo}&vercel=${vercel}`);
-    return await response.json();
 }
