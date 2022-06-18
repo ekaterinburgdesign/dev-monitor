@@ -31,7 +31,7 @@ export default async function handler(req, res) {
                 commitMessage: commit.data.commit.message,
                 commitAuthor: commit.data.committer?.login
             };
-        }))
+        }));
 
     const sortedSlots = slotsData.sort((a, b) => {
         if (a.date > b.date) {
