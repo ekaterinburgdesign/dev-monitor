@@ -29,12 +29,17 @@
 
 ## Запуск
 
-Установка зависимостей
+В корне создать файл с переменными среды `.env.local` с [Access Token](https://github.com/settings/tokens) для GitHub со `scope` с доступом к `repo`
+```
+GITHUB_TOKEN=<github-access-token>
+```
+
+Установить зависимости
 ```sh
 npm i
 ```
 
-Разработка
+Запустить режим разработчика
 ```sh
 npm run dev
 ```
