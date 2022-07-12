@@ -65,5 +65,18 @@
                 "url": "https://ekaterinburg.design/street-plates-generator"
             }
         ]
+    },
+    {
+        "title": "Карта проектов",
+        "url": "https://emap-ekbdev.vercel.app/",
+        "icon": "",
+        "git": "map",
+        "vercel": "emap-ekbdev",
+        "links": [
+            {
+                "name": "База меток",
+                "url": "https://www.notion.so/ekaterinburg/d00e0e2ce615440cb7d6b2fd04aa2c48"
+            }
+        ]
     }
 ]
